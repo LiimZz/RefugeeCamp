@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link
+		href="#{request.contextPath}/resources/admin/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link
+		href="#{request.contextPath}/resources/admin/css/font-awesome.min.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/admin/css/pace.css"
+		rel="stylesheet" />
+	<link
+		href="#{request.contextPath}/resources/admin/css/colorbox/colorbox.css"
+		rel="stylesheet" />
+	<link 
+		href="#{request.contextPath}/resources/admin/css/morris.css"
+		rel="stylesheet" />
+	<link 
+		href="#{request.contextPath}/resources/admin/css/app.min.css"
+		rel="stylesheet" />
+	<link 
+		href="#{request.contextPath}/resources/admin/css/app-skin.css"
+		rel="stylesheet" />
+</h:head>
+
+<h:body class="overflow-hidden">
+
+	<div id="wrapper" class="preload">
+		<div id="top-nav" class="fixed default">
+			<a href="#" class="brand"> <span>Refugee</span> <span
+				class="text-toggle"> Admin</span>
+			</a>
+			<!-- /brand -->
+			<button type="button" class="navbar-toggle pull-left"
+				id="sidebarToggle">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<button type="button" class="navbar-toggle pull-left hide-menu"
+				id="menuToggle">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<ul class="nav-notification clearfix">
+				<li class="profile dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> <strong>Admin</strong> <span><i
+							class="fa fa-chevron-down"></i></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a class="clearfix" href="#"> <img
+								src="#{request.contextPath}/resources/user.jpg"
+								alt="User Avatar" />
+								<div class="detail">
+									<strong>Admin</strong>
+									<p class="grey">SPAdmin@esprit-tn.com</p>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+								<li><a href="#">
+								<h:outputLabel value="#{userBean.user.userName}" />
+								</a></li>
+								<li><a href="http://localhost:44318/Account/LogOffs">logoff</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<!-- /top-nav-->
+
+		<aside class="default">
+		<div class="sidebar-inner scrollable-sidebar">
+			<div class="size-toggle">
+				<a class="btn btn-sm" id="sizeToggle"> <span class="icon-bar"></span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span>
+				</a>
+			</div>
+			<!-- /size-toggle -->
+			<div class="user-block clearfix">
+				<img src="#{request.contextPath}/resources/user.jpg"
+					alt="User Avatar" />
+				<div class="detail">
+					<strong>Admin</strong>
+				</div>
+			</div>
+			<!-- /user-block -->
+			<div class="main-menu">
+				<ul>
+					<li class="active"><a href="#"> <span class="menu-icon">
+								<i class="fa fa-desktop fa-lg"></i>
+						</span> <span class="text"> Dashboard </span> <span class="menu-hover"></span>
+					</a></li>
+					<li><a href="#"> <span class="menu-icon"> <i
+								class="fa fa-desktop fa-lg"></i>
+						</span> <span class="text"> Posts </span> <span class="menu-hover"></span>
+					</a></li>
+					<li><a href="#"> <span class="menu-icon"> <i
+								class="fa fa-group fa-lg"></i>
+						</span> <span class="text"> Refugees </span> <span class="menu-hover"></span>
+					</a></li>
+					<li><a href="#"> <span class="menu-icon"> <i
+								class="fa fa-picture-o fa-lg"></i>
+						</span> <span class="text"> Gallery </span> <span class="menu-hover"></span>
+					</a></li>
+					<li><a href="inbox.html"> <span class="menu-icon">
+								<i class="fa fa-envelope fa-lg"></i>
+						</span> <span class="text"> Inbox </span> <span class="menu-hover"></span>
+					</a></li>
+				</ul>
+			</div>
+			<!-- /main-menu -->
+		</div>
+		<!-- /sidebar-inner -->
+		<div class="panel panel-default">
+			<div class="panel-body" id="trafficWidget">
+				<div id="placeholder" class="graph" style="height: 250px"></div>
+			</div>
+			<div class="loading-overlay">
+				<i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+			</div>
+		</div>
+		<!-- /panel -->
+		<div class="panel bg-info fadeInDown">
+			<div id="lineChart" style="height: 150px;"></div>
+		</div>
+		<!-- /panel -->
+		<div class="panel bg-success fadeInDown">
+			<div id="barChart" style="height: 150px;"></div>
+		</div>
+		<!-- /panel -->
+		<div class="panel panel-default">
+			<div id="donutChart" style="height: 250px;"></div>
+		</div>
+		<!-- /panel --> </aside>
+		<div id="main-container">
+			<div id="breadcrumb">
+				<ul class="breadcrumb">
+					<li><i class="fa fa-home"></i><a href="#"> Home</a></li>
+					<li class="active">Dashboard</li>
+				</ul>
+			</div>
+			<!-- /breadcrumb-->
+			<div class="main-header clearfix">
+				<div class="page-title">
+					<h3 class="no-margin">Dashboard</h3>
+					<span>Welcome Admin</span>
+				</div>
+				<!-- /page-title -->
+			</div>
+			<!-- /main-header -->
+
+			<div class="grey-container shortcut-wrapper">
+				<a href="#" class="shortcut-link"> <span class="shortcut-icon">
+						<i class="fa fa-bar-chart-o"></i>
+				</span> <span class="text">Statistic</span>
+				</a> <a href="#" class="shortcut-link"> <span class="shortcut-icon">
+						<i class="fa fa-envelope-o"></i>
+				</span> <span class="text">Claims</span>
+				</a> <a href="#" class="shortcut-link"> <span class="shortcut-icon">
+						<i class="fa fa-desktop"></i>
+				</span> <span class="text">Posts</span>
+				</a> <a href="#" class="shortcut-link"> <span class="shortcut-icon">
+						<i class="fa fa-user"></i>
+				</span> <span class="text">Refugees</span>
+				</a>
+			</div>
+			<!-- /grey-container -->
+			<div class="padding-md">
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<div class="panel-stat3 bg-danger">
+							<h2 class="m-top-none" id="userCount">362</h2>
+							<h5>Registered users</h5>
+							<div class="stat-icon">
+								<i class="fa fa-user fa-3x"></i>
+							</div>
+							<div class="refresh-button">
+								<i class="fa fa-refresh"></i>
+							</div>
+							<div class="loading-overlay">
+								<i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+							</div>
+						</div>
+					</div>
+					<!-- /.col -->
+					<div class="col-sm-6 col-md-3">
+						<div class="panel-stat3 bg-warning">
+							<h2 class="m-top-none" id="orderCount">593</h2>
+							<h5>Registered Volunteers</h5>
+							<div class="stat-icon">
+								<i class="fa fa-user fa-3x"></i>
+							</div>
+							<div class="refresh-button">
+								<i class="fa fa-refresh"></i>
+							</div>
+							<div class="loading-overlay">
+								<i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+							</div>
+						</div>
+					</div>
+					<!-- /.col -->
+				</div>
+
+				<div class="row">
+					<hr />
+
+
+
+					<!-- content start here -->
+					<ui:include src="/template/content.xhtml" />
+					<!-- content end here -->
+
+
+
+					<hr />
+				</div>
+
+
+			</div>
+			<!-- /.padding-md -->
+		</div>
+		<!-- /main-container -->
+		<!-- Footer
+        ================================================== -->
+		<footer>
+		<div class="row">
+			<div class="col-sm-6">
+				<span class="footer-brand"> <strong class="text-danger">Refugee</strong>
+					Admin
+				</span>
+				<p class="no-margin">
+					&copy; 2017 <strong>Data-Vadors</strong>. ALL Rights Reserved.
+				</p>
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row--> </footer>
+
+	</div>
+	<!-- /wrapper -->
+
+	<script
+		src="#{request.contextPath}/resources/admin/js/jquery-2.1.4.min.js"></script>
+	<script
+		src="#{request.contextPath}/resources/admin/bootstrap/js/bootstrap.js"></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.flot.min.js'></script>
+	<script src='#{request.contextPath}/resources/admin/js/rapheal.min.js'></script>
+	<script src='#{request.contextPath}/resources/admin/js/morris.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.colorbox.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.sparkline.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/uncompressed/pace.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.popupoverlay.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.slimscroll.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/modernizr.min.js'></script>
+	<script
+		src='#{request.contextPath}/resources/admin/js/jquery.cook.min.js'></script>
+	<script
+		src="#{request.contextPath}/resources/admin/js/app/app_dashboard.js"></script>
+	<script src="#{request.contextPath}/resources/admin/js/app/app.js"></script>
+	
+</h:body>
+
+</html>

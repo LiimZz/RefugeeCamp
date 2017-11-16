@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="RefugeeCampSolution-ejb">
+		<jta-data-source>java:/RefugeeDS</jta-data-source>
+		
+		
+<!-- 		<class>tn.esprit.persistence.Adoption</class>
+		<class>tn.esprit.persistence.AdoptionPK</class>
+		<class>tn.esprit.persistence.AspNetRole</class>
+		<class>tn.esprit.persistence.AspNetUserRole</class>
+		<class>tn.esprit.persistence.AspNetUserRolePK</class>
+		<class>tn.esprit.persistence.AspNetUser</class>
+		<class>tn.esprit.persistence.Camp</class>
+		<class>tn.esprit.persistence.Consultation</class>
+		<class>tn.esprit.persistence.ConsultationPK</class>
+		<class>tn.esprit.persistence.Cours</class>
+		<class>tn.esprit.persistence.Donation</class>
+		<class>tn.esprit.persistence.Equipment</class>
+		<class>tn.esprit.persistence.Gift</class>
+		<class>tn.esprit.persistence.JobOffer</class>
+		<class>tn.esprit.persistence.JobOfferPK</class>
+		<class>tn.esprit.persistence.MedecinDisponibilite</class>
+		<class>tn.esprit.persistence.MedicalCare</class>
+		<class>tn.esprit.persistence.PartnerDoc</class>
+		<class>tn.esprit.persistence.Partner</class>
+		<class>tn.esprit.persistence.Refug</class>
+		<class>tn.esprit.persistence.Tent</class>
+ -->
+ 
+		<properties>
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+</persistence>
